@@ -5,12 +5,17 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 
-function App() {
+import { cryptoReducer as reducer } from './reducers/cryptoReducer';
+
+const store = createStore(reducer, applyMiddleware(thunk));
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header"></header>
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <header className="App-header"></header>
+        <h2>Show me the MoNey $</h2>
+      </div>
+    </Provider>
   );
 }
-
-export default App;
