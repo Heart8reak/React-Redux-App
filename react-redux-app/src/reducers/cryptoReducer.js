@@ -1,0 +1,32 @@
+import { FETCH_DATA, UPDATE_CRYPTO, SET_ERROR } from '../actions/index';
+
+const initialState = {
+  cryptos: [],
+  isFetchingData: false,
+  error: ''
+};
+
+export const cryptoReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case FETCH_DATA:
+      return {
+        ...state,
+        isFetchingData: true,
+        cryptos: []
+      };
+    case UPDATE_CRYPTO:
+      return {
+        ...state,
+        cryptos: action.payload,
+        isFetchingData: false
+      };
+    case SET_ERROR:
+      return {
+        ...state,
+        isFetchingData: false,
+        error: action.payload
+      };
+    default:
+      return state;
+  }
+};
