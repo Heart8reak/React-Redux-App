@@ -11,8 +11,8 @@ export const cryptoReducer = (state = initialState, action) => {
     case FETCH_DATA:
       return {
         ...state,
-        isFetchingData: true,
-        cryptos: []
+        isFetchingData: true
+        // cryptos: []
       };
     case UPDATE_CRYPTO:
       return {
