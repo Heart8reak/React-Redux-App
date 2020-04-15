@@ -32,7 +32,7 @@ const CryptoList = ({ cryptos }) => {
         <div className="error">{props.error}</div>
       ) : ( */}
       {cryptos.map(crypto => (
-        <div>
+        <div key={crypto.id.toString()}>
           <Card>
             <CardActionArea>
               <CardMedia
